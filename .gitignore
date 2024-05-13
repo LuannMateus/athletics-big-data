@@ -1,0 +1,4 @@
+venv
+build
+__*cache*
+*egg-info
