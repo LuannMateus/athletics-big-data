@@ -1,4 +1,5 @@
-venv
+venv*
 build
+dist
 __*cache*
 *egg-info

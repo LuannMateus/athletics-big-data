@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # Install the required packages
-pip install .
+python3 setup.py bdist_wheel && pip install . && playwright install 
