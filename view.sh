@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # Run Streamlit
-streamlit run view/main.py
+streamlit run view/app.py

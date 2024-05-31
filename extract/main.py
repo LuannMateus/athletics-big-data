@@ -1,4 +1,4 @@
-from playwright.sync_api import Page
+from playwright.sync_api import Page, sync_playwright
 
 # Função para fazer login na aplicação
 def fazer_login(page: Page):
@@ -18,7 +18,7 @@ def extrair_dados(page):
 
 # Função principal
 def main():
-    # with sync_playwright() as p:
+    with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
 
