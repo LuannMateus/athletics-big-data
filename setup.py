@@ -7,6 +7,7 @@ setup(
     install_requires = [
         'streamlit',
         'pandas',
+        'matplotlib',
         'playwright',
         'scrapy',
     ],
