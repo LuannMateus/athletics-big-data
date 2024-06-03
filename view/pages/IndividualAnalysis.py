@@ -7,7 +7,8 @@ from components.loading import Loading
 from utils.sidebar import DefaultSidebar as Sidebar
 
 def renderComponents():
-    GoBackButton(st)
+    group = st.query_params.group
+    GoBackButton(st, f'/Athletes?group={group}')
     Sidebar(st)
     Loading(st, 0.9)
 

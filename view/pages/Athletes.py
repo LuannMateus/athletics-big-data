@@ -8,7 +8,8 @@ from utils.sidebar import DefaultSidebar as Sidebar
 
 def renderComponents():
     applyGlobalStyles()
-    GoBackButton(st)
+    group = st.query_params.group
+    GoBackButton(st, '/')
     Sidebar(st)
     Loading(st, 0.9)
 
