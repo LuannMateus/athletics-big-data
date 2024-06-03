@@ -59,7 +59,7 @@ def render():
         renderGraphics(df)
     with categories_tab:
         for group in df['Grupo'].unique():
-            Link(st, f'http://192.168.0.10:8501/Athletes?group={group}', group)
+            Link(st, f'/Athletes?group={group}', group)
     with info_tab:
         st.markdown('''
             ### Projeto: Painel de Visualização de Atletas

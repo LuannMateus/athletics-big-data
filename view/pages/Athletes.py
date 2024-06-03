@@ -21,10 +21,10 @@ def render():
     mens_tab, girls_tab = st.tabs(['Masculino', 'Feminino'])
     with mens_tab:
         for athlete in athletes[athletes['Sexo'] == 'M']['Nome'].unique():
-            DefaultLink(st, f'http://192.168.0.10:8501/IndividualAnalysis?group={group}&name={athlete}', athlete)
+            DefaultLink(st, f'/IndividualAnalysis?group={group}&name={athlete}', athlete)
     with girls_tab:
         for athlete in athletes[athletes['Sexo'] == 'F']['Nome'].unique():
-            DefaultLink(st, f'http://192.168.0.10:8501/IndividualAnalysis?group={group}&name={athlete}', athlete)
+            DefaultLink(st, f'/IndividualAnalysis?group={group}&name={athlete}', athlete)
     
 
 render()
