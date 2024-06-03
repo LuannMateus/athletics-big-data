@@ -10,6 +10,7 @@ setup(
         'matplotlib',
         'playwright',
         'scrapy',
+        'plotly',
     ],
     entry_points = {
         'console_scripts': [],

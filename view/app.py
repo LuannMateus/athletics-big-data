@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import plotly.express as px
 
 # Application imports
 from styles.global_styles import applyGlobalStyles
@@ -15,45 +16,30 @@ def renderComponents():
 
 def renderGraphics(df):
     # Gráfico de Pizza para Distribuição dos Grupos de Atletas
-    st.write('Gráfico de pizza para a distribuição dos grupos de atletas:')
-    group_counts = df['Grupo'].value_counts()
-    fig, ax = plt.subplots()
-    ax.pie(group_counts, labels=group_counts.index, autopct='%1.1f%%', startangle=90)
-    ax.axis('equal')  # Mantém o aspecto de um círculo
-    plt.title('Distribuição dos Grupos de Atletas')
-    st.pyplot(fig)
-            
+    group_counts = df['Grupo'].value_counts().reset_index()
+    group_counts.columns = ['Grupo', 'Contagem']
+    fig = px.pie(group_counts, names='Grupo', values='Contagem', title='Distribuição dos Grupos de Atletas')
+    st.plotly_chart(fig)
+
     # Criar um gráfico de barras para a média de PSR por grupo
-    st.write('Gráfico de barras para a média de PSR por grupo:')
-    avg_psr_por_group = df.groupby('Grupo')['PSR'].mean()
-    fig1, ax1 = plt.subplots()
-    avg_psr_por_group.plot(kind='bar', ax=ax1)
-    plt.xlabel('Grupo')
-    plt.ylabel('Média de PSR')
-    st.pyplot(fig1)
+    avg_psr_por_group = df.groupby('Grupo')['PSR'].mean().reset_index()
+    fig2 = px.bar(avg_psr_por_group, x='Grupo', y='PSR', title='Média de PSR por Grupo', labels={'PSR': 'Média de PSR'})
+    st.plotly_chart(fig2)
 
     # Criar um gráfico de dispersão para PSE vs Carga de Treino
-    st.write('Gráfico de dispersão para PSE vs Carga de Treino:')
-    fig2, ax2 = plt.subplots()
-    df.plot.scatter(x='PSE', y='CargaDeTreino', ax=ax2)
-    plt.xlabel('PSE')
-    plt.ylabel('Carga de Treino')
-    st.pyplot(fig2)
+    fig3 = px.scatter(df, x='PSE', y='CargaDeTreino', title='Dispersão: PSE vs Carga de Treino', labels={'PSE': 'PSE', 'CargaDeTreino': 'Carga de Treino'})
+    st.plotly_chart(fig3)
 
     # Criar um gráfico de linha para a evolução da média de PSR ao longo do tempo
-    st.write('Gráfico de linha para a evolução da média de PSR ao longo do tempo:')
     df['Data'] = pd.to_datetime(df['Data'])
-    avg_psr_per_date = df.groupby('Data')['PSR'].mean()
-    fig3, ax3 = plt.subplots()
-    avg_psr_per_date.plot(ax=ax3)
-    plt.xlabel('Data')
-    plt.ylabel('Média de PSR')
-    st.pyplot(fig3)
+    avg_psr_per_date = df.groupby('Data')['PSR'].mean().reset_index()
+    fig4 = px.line(avg_psr_per_date, x='Data', y='PSR', title='Evolução da Média de PSR ao Longo do Tempo', labels={'Data': 'Data', 'PSR': 'Média de PSR'})
+    st.plotly_chart(fig4)
 
 def render():
     renderComponents()
     st.title('Big Data Atletas')
-    df = pd.read_csv('https://raw.githubusercontent.com/LuannMateus/my-dataframes/main/bigdataathleticsmock.csv')
+    df = pd.read_csv('https://raw.githubusercontent.com/LuannMateus/my-dataframes/main/athletics.csv')
     graphics_tab, categories_tab, info_tab = st.tabs(['Gráficos dos grupos', 'Grupos', 'Informações'])
     with graphics_tab:
         renderGraphics(df)

@@ -16,15 +16,10 @@ def renderComponents():
 def render():
     renderComponents()
     st.title('Atletas')
-    df = pd.read_csv('https://raw.githubusercontent.com/LuannMateus/my-dataframes/main/bigdataathleticsmock.csv')
+    df = pd.read_csv('https://raw.githubusercontent.com/LuannMateus/my-dataframes/main/athletics.csv')
     group = st.query_params.group
     athletes = df.loc[df['Grupo'] == group]
-    mens_tab, girls_tab = st.tabs(['Masculino', 'Feminino'])
-    with mens_tab:
-        for athlete in athletes[athletes['Sexo'] == 'M']['Nome'].unique():
-            DefaultLink(st, f'/IndividualAnalysis?group={group}&name={athlete}', athlete)
-    with girls_tab:
-        for athlete in athletes[athletes['Sexo'] == 'F']['Nome'].unique():
-            DefaultLink(st, f'/IndividualAnalysis?group={group}&name={athlete}', athlete)
+    for athlete in athletes['Nome'].unique():
+        DefaultLink(st, f'/IndividualAnalysis?group={group}&name={athlete}', athlete)
 
 render()

@@ -42,7 +42,7 @@ def renderGraphics(df, athleteName):
 
 def render():
     renderComponents()
-    df = pd.read_csv('https://raw.githubusercontent.com/LuannMateus/my-dataframes/main/bigdataathleticsmock.csv')
+    df = pd.read_csv('https://raw.githubusercontent.com/LuannMateus/my-dataframes/main/athletics.csv')
     athlete_name = st.query_params.name
     st.title(f'Gráficos de {athlete_name}')
     athlete_df = df.loc[df['Nome'] == athlete_name]
