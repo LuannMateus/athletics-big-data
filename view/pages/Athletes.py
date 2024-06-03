@@ -25,6 +25,5 @@ def render():
     with girls_tab:
         for athlete in athletes[athletes['Sexo'] == 'F']['Nome'].unique():
             DefaultLink(st, f'/IndividualAnalysis?group={group}&name={athlete}', athlete)
-    
 
 render()
