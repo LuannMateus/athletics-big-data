@@ -4,7 +4,10 @@ def DefaultSidebar(st):
 
     no_sidebar_style = """
         <style>
-            ul [data-testid="stSidebarNavItems" class="st-emotion-cache-1s0bj5q eczjsme9"],
+            ul [data-testid="stSidebarNavItems" class="st-emotion-cache-1s0bj5q eczjsme9"] {
+                display: none;
+            }
+            
             .eczjsme14 {
                 display: none;
             }
