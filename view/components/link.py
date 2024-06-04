@@ -8,7 +8,6 @@ def DefaultLink(st, href, label):
                     padding: 8px 12px;
                     border-radius: 5px;
                     transition: background-color 0.3s ease, color 0.3s ease;
-                    # background-color: #f63366;
                 }}
             </style>
             <a class="custom-link" href="{href}" target="_self">{label}</a>
