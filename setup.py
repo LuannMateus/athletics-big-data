@@ -8,9 +8,8 @@ setup(
         'streamlit',
         'pandas',
         'matplotlib',
-        'playwright',
-        'scrapy',
         'plotly',
+        'black',
     ],
     entry_points = {
         'console_scripts': [],

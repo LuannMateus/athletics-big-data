@@ -1,18 +1,14 @@
 def DefaultLink(st, href, label):
     return st.markdown(f'''
             <style>
-                .custom-link {{
-                    color: #ffffff !important; /* Azul profissional */
-                    font-weight: 600; /* Semibold */
+                .custom-link {{                    
+                    color: #ffffff !important;
+                    font-weight: 600;
                     text-decoration: none;
                     padding: 8px 12px;
                     border-radius: 5px;
                     transition: background-color 0.3s ease, color 0.3s ease;
-                }}
-
-                .custom-link:hover {{
-                    color: #f9527e;
-                    background-color: #f9527e; /* Azul mais escuro para hover */
+                    # background-color: #f63366;
                 }}
             </style>
             <a class="custom-link" href="{href}" target="_self">{label}</a>
@@ -38,6 +34,7 @@ def GoBackLink(st, path):
                 text-decoration: none;
                 text-align: center;
             }}
+
             .go-back-link:hover {{
                 background-color: #f9527e;
             }}

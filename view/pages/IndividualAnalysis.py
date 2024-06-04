@@ -1,44 +1,34 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
+import plotly.express as px
 
 from components.link import GoBackLink as GoBackButton
 from components.loading import Loading
 from utils.sidebar import DefaultSidebar as Sidebar
 
 def renderComponents():
-    group = st.query_params.group
-    GoBackButton(st, f'/Athletes?group={group}')
+    st.set_page_config(page_title=f'Análise | {st.query_params.name}', layout='centered')
+    GoBackButton(st, f'/Athletes?group={st.query_params.group}')
     Sidebar(st)
     Loading(st, 0.9)
 
 def renderGraphics(df, athleteName):
+    # Gráfico de linha para risco de lesão
+    df['RiscoLesao'] = df['PSR'] * df['PSE'] * df['CargaDeTreino'] / 1000  # Exemplo de cálculo
+    fig_risco = px.line(df, x='Data', y='RiscoLesao', title=f'Evolução do Risco de Lesão para {athleteName}', labels={'Data': 'Data', 'RiscoLesao': 'Risco de Lesão'})
+    st.plotly_chart(fig_risco)
+    
     # Gráfico de linha para a evolução do PSR ao longo do tempo
-    st.write(f'Gráfico para a evolução do PSR:')
-    fig1, ax1 = plt.subplots()
-    df.plot(x='Data', y='PSR', ax=ax1)
-    plt.xlabel('Data')
-    plt.ylabel('PSR')
-    plt.title(f'Evolução do PSR para {athleteName}')
-    st.pyplot(fig1)
+    fig1 = px.line(df, x='Data', y='PSR', title=f'Evolução do PSR para {athleteName}', labels={'Data': 'Data', 'PSR': 'PSR'})
+    st.plotly_chart(fig1)
 
     # Gráfico de linha para a evolução do PSE ao longo do tempo
-    st.write(f'Gráfico para a evolução do PSE:')
-    fig2, ax2 = plt.subplots()
-    df.plot(x='Data', y='PSE', ax=ax2)
-    plt.xlabel('Data')
-    plt.ylabel('PSE')
-    plt.title(f'Evolução do PSE para {athleteName}')
-    st.pyplot(fig2)
+    fig2 = px.line(df, x='Data', y='PSE', title=f'Evolução do PSE para {athleteName}', labels={'Data': 'Data', 'PSE': 'PSE'})
+    st.plotly_chart(fig2)
 
     # Gráfico de linha para a evolução da Carga de Treino ao longo do tempo
-    st.write(f'Gráfico para a evolução da Carga de Treino:')
-    fig3, ax3 = plt.subplots()
-    df.plot(x='Data', y='CargaDeTreino', ax=ax3)
-    plt.xlabel('Data')
-    plt.ylabel('Carga de Treino')
-    plt.title(f'Evolução da Carga de Treino para {athleteName}')
-    st.pyplot(fig3)
+    fig3 = px.line(df, x='Data', y='CargaDeTreino', title=f'Evolução da Carga de Treino para {athleteName}', labels={'Data': 'Data', 'CargaDeTreino': 'Carga de Treino'})
+    st.plotly_chart(fig3)
 
 def render():
     renderComponents()

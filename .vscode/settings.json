@@ -1,0 +1,14 @@
+{
+  "editor.formatOnSave": true,
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+  "[python]": {
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+      "--line-length",
+      "120",
+      "--ident-width",
+      "4"
+    ]
+  }
+}

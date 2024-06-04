@@ -10,6 +10,7 @@ from components.loading import Loading
 from utils.sidebar import DefaultSidebar as Sidebar
 
 def renderComponents():
+    st.set_page_config(page_title='Inicío', layout='centered')
     applyGlobalStyles()
     Sidebar(st)
     Loading(st, 1)

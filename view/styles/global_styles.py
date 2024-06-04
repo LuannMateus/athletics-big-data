@@ -5,17 +5,15 @@ def applyGlobalStyles():
     st.markdown(
         f'''
             <style>
-                #tabs-bui2-tabpanel-1 > div > div > div,
-                #tabs-bui2-tabpanel-0 > div > div > div {{
-                    background-color: #f8f9fa;
-                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-                    border-radius: 0;
-                }}
-
-                #tabs-bui2-tabpanel-1 > div > div > div p:nth-child(even),
-                #tabs-bui2-tabpanel-0 > div > div > div p:nth-child(even) {{
-                    background-color: #e74c3c; /* Darker grey for even rows */
+                #tabs-bui3-tabpanel-1 > div > div > div p:nth-child(even),
+                #tabs-bui3-tabpanel-1 > div > div > div p:nth-child(even),
+                #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-13ln4jf.ea3mdgi5 > div > div > div > div.st-emotion-cache-0.e1f1d6gn0 > div > div p:nth-child(even) {{
+                    background-color: #e74c3c;
                     padding: 12px;
+                }}
+                
+                #tabs-bui2-tabpanel-0 > div > div > div {{
+                    background-color: transparent !important;
                 }}
             </style>
         ''',
