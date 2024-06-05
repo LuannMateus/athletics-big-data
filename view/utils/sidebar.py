@@ -4,9 +4,9 @@ def DefaultSidebar(st):
 
     no_sidebar_style = """
         <style>            
-            .eczjsme14 {
-                display: none;
-            }
+            # .eczjsme14 {
+            #     display: none;
+            # }
             
             # .eczjsme9 {
             #     display: none;
