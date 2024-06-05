@@ -9,7 +9,7 @@ from utils.sidebar import DefaultSidebar as Sidebar
 def renderComponents():
     st.set_page_config(page_title=f'Atletas | {st.query_params.group}', layout='centered')
     applyGlobalStyles()
-    GoBackButton(st, '')
+    GoBackButton(st, '/')
     Sidebar(st)
     Loading(st, 0.9)
 
