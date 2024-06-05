@@ -8,13 +8,9 @@ def applyGlobalStyles():
                 #tabs-bui3-tabpanel-1 > div > div > div p:nth-child(even),
                 #tabs-bui3-tabpanel-1 > div > div > div p:nth-child(even),
                 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-13ln4jf.ea3mdgi5 > div > div > div > div.st-emotion-cache-0.e1f1d6gn0 > div > div p:nth-child(even),
-                .e1f1d6gn2 p:nth-child(even) {{
+                .st-emotion-cache-1n76uvr .e1f1d6gn2 {{
                     background-color: #e74c3c;
                     padding: 12px;
-                }}
-                
-                #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.st-emotion-cache-bm2z3a.ea3mdgi8 > div.block-container.st-emotion-cache-13ln4jf.ea3mdgi5 > div > div > div > div:nth-child(2) > div > div > p {{
-                    display: none;
                 }}
                 
                 #tabs-bui2-tabpanel-0 > div > div > div {{
