@@ -18,27 +18,32 @@ def DefaultLink(st, href, label):
 def GoBackLink(st, path):
     return st.markdown(
         f'''
-        <style>
-            .go-back-link {{
-                position: fixed;
-                right: 20px;
-                background-color: #f63366;
-                color: white !important;
-                padding: 10px 20px;
-                border-radius: 5px;
-                font-size: 16px;
-                cursor: pointer;
-                z-index: 1000;
-                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-                text-decoration: none;
-                text-align: center;
-            }}
+            <style>
+                .go-back-link {{
+                    position: fixed;
+                    right: 20px;
+                    background-color: #f63366;
+                    color: white !important;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    font-size: 16px;
+                    cursor: pointer;
+                    z-index: 1000;
+                    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+                    text-decoration: none;
+                    text-align: center;
+                }}
 
-            .go-back-link:hover {{
-                background-color: #f9527e;
-            }}
-        </style>
-        <a class="go-back-link" onClick="() => history.go({path})" target="_self">Voltar</a>
+                .go-back-link:hover {{
+                    background-color: #f9527e;
+                }}
+            </style>
+            <script>
+                function customFunction() {
+                    alert('Link clicado! Função customizada executada.')
+                }
+            </script>
+            <a class="go-back-link" onClick="customFunction()" target="_self">Voltar</a>
         '''
         , unsafe_allow_html=True
     )
