@@ -39,11 +39,11 @@ def GoBackLink(st, path):
                 }}
             </style>
             <script>
-                function customFunction() {
-                    alert('Link clicado! Função customizada executada.')
-                }
+                function goBack() {{
+                    history.go(-1);
+                }}
             </script>
-            <a class="go-back-link" onClick="customFunction()" target="_self">Voltar</a>
+            <a class="go-back-link" href="{path}" onClick="goBack()" target="_self">Voltar</a>
         '''
         , unsafe_allow_html=True
     )
