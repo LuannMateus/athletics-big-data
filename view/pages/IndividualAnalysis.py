@@ -2,12 +2,14 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
+from styles.global_styles import applyGlobalStyles
 from components.link import GoBackLink as GoBackButton
 from components.loading import Loading
 from utils.sidebar import DefaultSidebar as Sidebar
 
 def renderComponents():
     st.set_page_config(page_title=f'Análise | {st.query_params.name}', layout='centered')
+    applyGlobalStyles()
     GoBackButton(st, f'/Athletes?group={st.query_params.group}')
     Sidebar(st)
     Loading(st, 0.9)
