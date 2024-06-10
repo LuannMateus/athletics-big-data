@@ -16,6 +16,10 @@ def applyGlobalStyles():
                 #tabs-bui2-tabpanel-0 > div > div > div {{
                     background-color: transparent !important;
                 }}
+                
+                #root > div:nth-child(1) > div.withScreencast > div > div > div > section.st-emotion-cache-1itdyc2.eczjsme11 > div.st-emotion-cache-6qob1r.eczjsme3 > div.st-emotion-cache-79elbk.eczjsme10 > ul {{
+                    display: none;
+                }}
             </style>
         ''',
         unsafe_allow_html=True

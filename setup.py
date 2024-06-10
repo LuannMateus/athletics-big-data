@@ -9,7 +9,6 @@ setup(
         'pandas',
         'matplotlib',
         'plotly',
-        'black',
     ],
     entry_points = {
         'console_scripts': [],

@@ -38,7 +38,7 @@ def GoBackLink(st, path):
                     background-color: #f9527e;
                 }}
             </style>
-            <a class="go-back-link" href="{path}" onClick="() => history.go({path})" target="_self">Voltar</a>
+            <a class="go-back-link" href="{path}" target="_self">Voltar</a>
         '''
         , unsafe_allow_html=True
     )
